@@ -1,5 +1,5 @@
 current directory: /Users/suzukikoutarou/Desktop/myapp/vendor/bundle/ruby/2.5.0/gems/mysql2-0.5.2/ext/mysql2
-/Users/suzukikoutarou/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20190330-48788-vvi0fk.rb extconf.rb
+/Users/suzukikoutarou/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20190330-49259-bwjk11.rb extconf.rb
 checking for rb_absint_size()... yes
 checking for rb_absint_singlebit_p()... yes
 checking for rb_wait_for_single_fd()... yes

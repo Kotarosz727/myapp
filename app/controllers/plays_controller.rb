@@ -15,11 +15,11 @@ class PlaysController < ApplicationController
 
   def create
     @play = Play.new(play_params)
-      if @play.save
-        redirect_to @play
-      else
-        render new
-      end
+    if @play.save
+      redirect_to @play
+    else
+      render new
+    end
   end
 
   def edit
@@ -40,11 +40,11 @@ class PlaysController < ApplicationController
  
   private
 
-  def play_params
-    params.require(:play).permit(:title, :description, :director)
-  end
+    def play_params
+      params.require(:play).permit(:title, :description, :director)
+    end
 
-  def find_play
-    @play =  Play.find(params[:id])
-  end
+    def find_play
+      @play =  Play.find(params[:id])
+    end
 end

@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_04_08_093701) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.text "url"
+    t.integer "caterory_id"
+    t.integer "category_id"
   end
 
   create_table "users", force: :cascade do |t|

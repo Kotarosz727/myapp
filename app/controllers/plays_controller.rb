@@ -3,7 +3,7 @@ class PlaysController < ApplicationController
   before_action :find_play, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plays = Play.all
+    @plays = Play.all.order("RANDOM()")
   end
 
   def show
@@ -11,23 +11,27 @@ class PlaysController < ApplicationController
 
   def new
     @play = current_user.plays.build
+    @categories = Category.all.map { |c| [c.name, c.id]} 
   end
 
   def create
-    @play = current_user.play.build(play_params)
+    @play = current_user.plays.build(play_params)
+    @play.category_id = params[:category_id]
     if @play.save
-      redirect_to @play
+      redirect_to play_path(@play)
     else
       render new
     end
   end
 
   def edit
+    @categories = Category.all.map { |c| [c.name, c.id]} 
   end
 
   def update
-    if @play.update
-      redirect_to @play
+    @play.category_id = params[:category_id]
+    if @play.update(play_params)
+      redirect_to play_path(@play)
     else
       render edit
     end
@@ -41,10 +45,10 @@ class PlaysController < ApplicationController
   private
 
     def play_params
-      params.require(:play).permit(:title, :description, :director)
+      params.require(:play).permit(:title, :description, :director, :category_id, :image)
     end
 
     def find_play
-      @play =  Play.find(params[:id])
+      @play = Play.find(params[:id])
     end
 end

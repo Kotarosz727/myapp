@@ -1,5 +1,9 @@
+<div class="row">
 <% @plays.each do |play| %>
-  <h2><%= link_to play.title, play_path(play) %></h2>
+  <div class="col-md-3">
+    <%= link_to (play_path(play)) do %>
+      <%= image_tag play.image.variant(resize: "240x320"), class: "play-index" %> 
+    <% end %>  
+  </div>  
 <% end %>
-
-<%= link_to "New", new_play_path(@path) %>
+</div>

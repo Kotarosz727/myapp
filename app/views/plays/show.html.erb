@@ -1,12 +1,23 @@
-<h1><%= @play.title %></h2>
-<h2><%= @play.description %></h2>
-<h2><%= @play.director %></h2>
-
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to (@play.description) do %>
+      <h2><%= image_tag @play.image.variant(resize: "325x475") %></h2>
+    <% end %>
+    <small>画像クリックでyoutube予告編へ（音量注意）</small>
+  </div>  
+  <div class="col-md-8, play-show">
+    <h1><%= @play.title %></h2>
+    <h4><%= @play.category.name %></h4>
+    <h2><%= @play.director %></h2>
+    <p><%= link_to "予告" , @play.description %></p>
+    
+  </div>
+</div>
 <div class="links btn-group">
   <% if user_signed_in? %>
     <% if @play.user_id == current_user.id %>
       <%= link_to "Edit", edit_play_path(@play) %>
       <%= link_to "Destroy", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %>
     <% end %>
-  <% end %> 
-</div>     
+  <% end %>
+</div>

@@ -1,9 +1,11 @@
 <div class="row">
-    <% @plays.each do |play| %>
-      <div class="col-md-3">
+  <% @plays.each do |play| %>
+    <div class="col-md-3">
+      <% if play.image.attached? %>
         <%= link_to (play_path(play)) do %>
-          <%= image_tag play.image.variant(resize: "240x320"), class: "play-index" %> 
-        <% end %>  
-      </div>  
-    <% end %>
+          <%= image_tag play.image.variant(resize: "240x320"), class: "play-index" %>
+        <% end %>
+      <% end %>
     </div>
+  <% end %>
+</div>

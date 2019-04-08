@@ -5,6 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @play = @user.play.all
+    @plays = @user.plays.all
   end
 end

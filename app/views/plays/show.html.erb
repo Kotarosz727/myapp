@@ -3,7 +3,7 @@
     <%= link_to (@play.url) do %>
       <h2><%= image_tag @play.image.variant(resize: "325x475") %></h2>
     <% end %>
-    <small>画像クリックでyoutube予告編へ（音量注意）</small>
+    <small class="color-white">画像クリックでyoutube予告編へ（音量注意）</small>
   </div>  
   <div class="col-md-8, play-show">
     <h1><%= @play.title %></h2>

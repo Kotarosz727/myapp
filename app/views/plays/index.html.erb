@@ -3,7 +3,7 @@
   <div class="col-md-3">
     <% if play.image.attached? %>
     <%= link_to (play_path(play)) do %>
-      <%= image_tag play.image.variant(resize: "240x320"), class: "play-index" %> 
+      <%= image_tag play.image.variant(combine_options:{resize:"220x290^",crop:"220x290+0+0",gravity: :center}) , class: "play-index" %> 
     <% end %>  
     <% end %>
   </div>  

@@ -23,6 +23,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'mini_magick'
 gem "aws-sdk-s3", require: false
+gem 'will_paginate'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

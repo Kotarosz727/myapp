@@ -3,7 +3,7 @@ class PlaysController < ApplicationController
   before_action :find_play, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plays = Play.all.order("RANDOM()")
+    @plays = Play.paginate(page: params[:page], per_page: 12).order("RANDOM()")
   end
 
   def show

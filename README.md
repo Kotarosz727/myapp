@@ -1,24 +1,20 @@
-# README
+1.内容
+映画投稿サイト　（著名人のおすすめ映画も閲覧可能）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2.主な機能
+・ユーザー登録機能（devise）
+・ユーザー一覧表示機能
+・記事投稿機能（映画タイトル、監督、詳細、外部サイトURL）
+・記事詳細表示機能
+・記事一覧表示機能
+・ページネーション機能
+・画像アップロード機能(Active Storage)
+・外部サイトへの遷移（youtube）
+・ActiveRecord関連付け
+・N+1問題への対処
+・scope追加（ランダム記事表示）
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+３.主な技術
+・DB:postgresql（本番環境）
+・s3への画像保存()
+・herokuへのデプロイ

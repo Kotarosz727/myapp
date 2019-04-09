@@ -3,7 +3,7 @@ class PlaysController < ApplicationController
   before_action :find_play, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plays = Play.paginate(page: params[:page], per_page: 12).order("RANDOM()")
+    @plays = Play.includes(image_attachment: [:blob]).paginate(page: params[:page], per_page: 12).random 
   end
 
   def show

@@ -1,4 +1,6 @@
-@user.nameのおすすめ映画
+<%= link_to (user_path(@user)) do %>
+  <h5 class="color-white"><%= @user.name %> のおすすめ映画</h5>
+<% end %>  
 <div class="row">
   <div class="col-md-4">
     <%= link_to (@play.url) do %>

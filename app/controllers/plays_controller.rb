@@ -7,6 +7,7 @@ class PlaysController < ApplicationController
   end
 
   def show
+    @owner_user = @play.user
   end
 
   def new

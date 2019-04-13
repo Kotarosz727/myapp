@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Plays", type: :feature do
   
-  scenario "user creates a new play" do
+  scenario "user can create a new play" do
     user = FactoryBot.create(:user)
 
     visit root_path
@@ -18,8 +18,23 @@ RSpec.feature "Plays", type: :feature do
       fill_in "詳細", with: "hogehoge"
       fill_in "監督", with: "ジェームズキャメロン"
       fill_in "予告編URL（youtube）", with: "sample.youtube.com"
-      attach_file "画像", "#{Rails.root}/spec/files/test.jpg"
+      attach_file "play_image", "#{Rails.root}/spec/files/test.jpg"
       click_button "Create Play"
     }.to change(user.plays, :count).by(1)
   end
+
+  scenario "correct play are shown in show template" do
+    user = FactoryBot.create(:user)
+    play_a = FactoryBot.create(:play, user: user)
+
+    visit play_path(play_a)
+    expect(page).to have_content play_a.title
+    expect(page).to have_content play_a.description
+    expect(page).to have_content play_a.director
+    expect(page).to have_content play_a.user.name
+
+    click_on "logo"
+    expect(current_path).to eq root_path
+  end
+
 end

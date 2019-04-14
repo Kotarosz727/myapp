@@ -6,7 +6,6 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2.2'
 
-#gem 'mysql2'
 gem 'pg', group: :production
 gem 'sqlite3', group: [:development, :test]
 gem 'puma', '~> 3.11'

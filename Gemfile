@@ -23,6 +23,8 @@ gem 'devise'
 gem 'mini_magick'
 gem "aws-sdk-s3", require: false
 gem 'will_paginate'
+gem 'rails_admin', '~> 1.3'
+gem 'cancancan'
 
 
 group :development, :test do

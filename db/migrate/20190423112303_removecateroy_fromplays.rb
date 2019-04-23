@@ -1,6 +1,6 @@
 class RemovecateroyFromplays < ActiveRecord::Migration[5.2]
   def up
-    remove_column :plays, :caterory_id
+    remove_column :plays, :caterory_id, :integer
   end
 
   def down

@@ -12,15 +12,15 @@
       <% if user_signed_in? %>
       <p class="navbar-text navbar-right">
         <%= current_user.name %>
-        <%= link_to "ユーザー一覧", users_path %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <%= link_to "新規作成", new_play_path%>
+        <%= link_to "All User", users_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to "Add New Play", new_play_path%>
       </p>
       <% else %>
       <p class="navbar-text navbar-right">
-        <%= link_to "みんなのFavorites", users_path %>
-        <%= link_to 'サインアップ', new_user_registration_path %>
-        <%= link_to 'ログイン', new_user_session_path %>
+        <%= link_to "Everyone's Favorites", users_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+        <%= link_to 'Login', new_user_session_path %>
       </p>
       <% end %>
     </div>

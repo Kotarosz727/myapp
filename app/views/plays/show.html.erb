@@ -22,7 +22,7 @@
     <h2><%= @play.director %></h2>
     <h5>カテゴリー：<%= @play.category.name %></h5>
     <p><%= @play.description %></p>
-    <div class="col-md-3, related_image">
+    <div class="related_image">
       <P class="related-plays"><関連作品></P>
       <% @related_plays.each do |related_play| %>
         <%= link_to (play_path(related_play)) do %>

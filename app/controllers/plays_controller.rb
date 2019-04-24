@@ -10,7 +10,7 @@ class PlaysController < ApplicationController
   def show
     @user = @play.user
     @category = @play.category
-    @related_plays = @category.plays.where.not(id: @play.id).includes(image_attachment: [:blob]).random
+    @related_plays = @category.plays.where.not(id: @play.id).includes(image_attachment: [:blob]).random.limit(5)
   end
 
   def new

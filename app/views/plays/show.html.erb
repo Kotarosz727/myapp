@@ -7,20 +7,29 @@
     <%= link_to (@play.url) do %>
       <h2><%= image_tag @play.image.variant(resize: "325x475") %></h2>
     <% end %>
-    <small class="color-white">画像クリックでyoutube予告編へ（音量注意）</small>
+    <p class="color-white">画像クリックでyoutube予告編へ（音量注意）</p>
+      <p class="links btn-group">
+        <% if user_signed_in? %>
+          <% if @play.user_id == current_user.id %>
+            <%= link_to "Edit", edit_play_path(@play) %>
+            <%= link_to "Destroy", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %>
+          <% end %>
+        <% end %>
+      </p>
   </div>  
   <div class="col-md-8, play-show">
     <h1><%= @play.title %></h2>
     <h2><%= @play.director %></h2>
     <h5>カテゴリー：<%= @play.category.name %></h5>
     <p><%= @play.description %></p>
+    <div class="col-md-3, related_image">
+      <P class="related-plays"><関連作品></P>
+      <% @related_plays.each do |related_play| %>
+        <%= link_to (play_path(related_play)) do %>
+          <%= image_tag related_play.image.variant(combine_options:{resize:"140x190^",crop:"140x190+0+0",gravity: :center}) %>
+        <% end %>
+      <% end %>
+    </div>  
   </div>
 </div>
-<div class="links btn-group">
-  <% if user_signed_in? %>
-    <% if @play.user_id == current_user.id %>
-      <%= link_to "Edit", edit_play_path(@play) %>
-      <%= link_to "Destroy", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %>
-    <% end %>
-  <% end %>
-</div>
+

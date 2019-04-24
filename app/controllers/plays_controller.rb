@@ -3,11 +3,13 @@ class PlaysController < ApplicationController
   before_action :find_play, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plays = Play.includes(image_attachment: [:blob]).paginate(page: params[:page], per_page: 12).random 
+    @plays = Play.includes(image_attachment: [:blob]).paginate(page: params[:page], per_page: 12)
   end
 
   def show
     @user = @play.user
+    @category = @play.category
+    @related_plays = @category.plays.where.not(id: @play.id).includes(image_attachment: [:blob]).random
   end
 
   def new

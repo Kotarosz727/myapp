@@ -11,16 +11,16 @@
     <div class="collapse navbar-collapse">
       <% if user_signed_in? %>
       <p class="navbar-text navbar-right">
-        <%= current_user.name %>
-        <%= link_to "All User", users_path %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-        <%= link_to "Add New Play", new_play_path%>
+        Under Login
+        <button class="btn btn-dark"><%= link_to "All User", users_path %></button>
+        <button class="btn btn-dark"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></button>
+        <button class="btn btn-dark"><%= link_to "Add New Play", new_play_path%></button>
       </p>
       <% else %>
       <p class="navbar-text navbar-right">
-        <%= link_to "Everyone's Favorites", users_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-        <%= link_to 'Login', new_user_session_path %>
+        <button class="btn btn-dark"><%= link_to "Everyone's Favorites", users_path %></button>
+        <button class="btn btn-dark"><%= link_to 'Sign Up', new_user_registration_path %></button>
+        <button class="btn btn-dark"><%= link_to 'Login', new_user_session_path %></button>
       </p>
       <% end %>
     </div>

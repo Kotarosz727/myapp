@@ -1,11 +1,8 @@
 <div class="row">
+  <h2><%= @user.name %>のオススメ</h2>
   <% @plays.each do |play| %>
-    <div class="col-md-3">
-      <% if play.image.attached? %>
-        <%= link_to (play_path(play)) do %>
-          <%= image_tag play.image.variant(combine_options:{resize:"250x300^",crop:"250x300+0+0",gravity: :center}), class: "play-index" %>
-        <% end %>
+      <%= link_to (play_path(play)) do %>
+        <%= image_tag play.image.variant(combine_options:{resize:"250x300^",crop:"250x300+0+0",gravity: :center}), class: "play-index" %>
       <% end %>
-    </div>
   <% end %>
 </div>

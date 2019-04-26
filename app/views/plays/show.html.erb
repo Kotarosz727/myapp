@@ -8,11 +8,11 @@
       <h2><%= image_tag @play.image.variant(resize: "325x475") %></h2>
     <% end %>
     <p class="color-white">画像クリックでyoutube予告編へ（音量注意）</p>
-      <p class="links btn-group">
+      <p class="play-update">
         <% if user_signed_in? %>
           <% if @play.user_id == current_user.id %>
-            <%= link_to "Edit", edit_play_path(@play) %>
-            <%= link_to "Destroy", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %>
+          <button class="btn btn-success"><%= link_to "編集", edit_play_path(@play) %></button>
+          <button class="btn btn-warning"><%= link_to "削除", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %></button>  
           <% end %>
         <% end %>
       </p>

@@ -16,7 +16,7 @@
     color: rgb(236, 243, 236);
     a:link {color:rgb(245, 237, 237); text-decoration:none }
     a:visited { color:rgb(10, 10, 10); text-decoration:none }
-    a:hover { color:rgb(167, 107, 29); text-decoration:none }
+    a:hover { color:rgb(10, 10, 10); text-decoration:none }
     a:active { color:white; text-decoration:none }
   }
   
@@ -44,6 +44,22 @@
 
   .sample-user{
     margin-top: 10px
+  }
+
+  .play-update{
+    a:link {color:rgb(245, 237, 237); text-decoration:none }
+    a:visited { color:rgb(10, 10, 10); text-decoration:none }
+    a:hover { color:rgb(10, 10, 10); text-decoration:none }
+    a:active { color:white; text-decoration:none }
+  }
+
+  .UserProfile{
+    margin-top: 10px;
+    a:link {color:rgb(245, 237, 237); text-decoration:none }
+    a:visited { color:rgb(10, 10, 10); text-decoration:none }
+    a:hover { color:rgb(10, 10, 10); text-decoration:none }
+    a:active { color:white; text-decoration:none }
+
   }
 
 

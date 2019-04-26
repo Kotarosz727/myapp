@@ -1,8 +1,20 @@
 <div class="row">
-  <h2><%= @user.name %>のオススメ</h2>
-  <% @plays.each do |play| %>
+  <div class="col-md-6">
+    <h2><%= @user.name %>のオススメ</h2>
+    <% if @user.id == current_user.id %>
+      <p class="UserProfile">
+        <button class="btn btn-primary"><%= link_to "ユーザー編集", edit_user_registration_path(@user) %></button>
+        <button class="btn btn-danger"><%= link_to "ユーザー削除", registration_path(@user), data: { confirm: "Really?" }, method: :delete %></button>
+      </p>
+  <% end %>  
+  </div>
+  <div class="col-md-6">
+    <% @plays.each do |play| %>
       <%= link_to (play_path(play)) do %>
         <%= image_tag play.image.variant(combine_options:{resize:"250x300^",crop:"250x300+0+0",gravity: :center}), class: "play-index" %>
       <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+

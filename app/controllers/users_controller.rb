@@ -9,4 +9,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @plays = @user.plays.all.includes(image_attachment: [:blob])
   end
+
+  
 end

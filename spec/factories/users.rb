@@ -6,6 +6,5 @@ FactoryBot.define do
     email { 'test@example.com' }
     password { '121212' }
     password_confirmation { '121212' }
-    # association :play
   end
 end

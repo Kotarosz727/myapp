@@ -5,25 +5,23 @@
 
   <div class="form-inputs">
     <%= f.file_field :avatar %>
-    <%= f.input :name ,label: "名前" %>
+    <%= f.input :name %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" },
-                label: "メール" %>
+                input_html: { autocomplete: "email" }
+                 %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } ,
-                label: "パスワード" %>
+                input_html: { autocomplete: "new-password" } 
+                 %>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "新規登録" %>
   </div>
 <% end %>
-
 <%= render "users/shared/links" %>

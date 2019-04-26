@@ -1,9 +1,9 @@
 <%= simple_form_for @play do |f| %>
   <%= select_tag(:category_id, options_for_select(@categories), :prompt =>"Select a category") %>
-  <%= f.input :title, label: "題名" %>
-  <%= f.input :description, label: "詳細" %>
-  <%= f.input :director, label: "監督" %>
-  <%= f.input :url, label: "予告編URL（youtube）" %>
-  <%= f.button :submit, label: "作成"  %>
-  <%= f.file_field :image,  label: "画像"  %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :director %>
+  <%= f.input :url %>
+  <%= f.button :submit  %>
+  <%= f.file_field :image %>
 <% end %> 

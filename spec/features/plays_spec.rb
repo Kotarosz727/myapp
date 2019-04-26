@@ -8,7 +8,7 @@ RSpec.describe 'Plays', type: :feature do
 
     visit root_path
 
-    click_on 'ログイン'
+    click_on 'Login'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'

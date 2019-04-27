@@ -1,21 +1,33 @@
-<h2>ログイン</h2>
+<div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="panel panel-danger">
+      <div class="panel-heading"><h2>ログイン</h2></div>  
+      <div class="panel-body">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      label: "メールアドレス",
+                      required: false,
+                      autofocus: true,
+                      as: :string, input_html: { value: 'sample@mail' }
+                      %>
+          <%= f.input :password,
+                      label: "パスワード",
+                      required: false,
+                      as: :string, input_html: { value: '123456' }
+                      %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit , "ログイン", class: "btn btn-danger" %>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <% end %>
+        <%= render "devise/shared/links" %>
+        <p class="sample-user">Email:sample@mail /Password:123456でサンプルユーザーとしてログイン</p>
+      </div>  
+    </div>  
+  </div> 
+</div>   
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "ログイン" %>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
-
-<p class="sample-user">Email:sample@mail /Password:123456でサンプルユーザーとしてログイン</p>

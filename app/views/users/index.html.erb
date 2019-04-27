@@ -3,7 +3,7 @@
     <div class="col-md-4">
       <%= link_to (user_path(user)) do %>
         <% if user.avatar.attached? %>
-          <%= image_tag user.avatar.variant(combine_options:{resize:"280x280^",crop:"280x280+0+0",gravity: :center}) %>
+          <%= image_tag user.avatar.variant(combine_options:{resize:"280x280^",crop:"280x280+0+0",gravity: :center,border:'3',bordercolor:'black'}) %>
           <p class="color-white"><%= user.name %>のfavorites Movie</p>
         <% else %>
           <%= user.name %>

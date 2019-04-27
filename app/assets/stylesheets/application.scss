@@ -1,9 +1,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .play-index{
-   margin-top: 10px
- }
 
  .navbar-default {
   background-color: #202423;
@@ -11,10 +8,10 @@
   }
 
   nav {
-    font-size: 1.2em;
+    font-size: 1.0em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(236, 243, 236);
-    a:link {color:rgb(245, 237, 237); text-decoration:none }
+    a:visited { color:rgb(10, 10, 10); text-decoration:none }
     a:visited { color:rgb(10, 10, 10); text-decoration:none }
     a:hover { color:rgb(10, 10, 10); text-decoration:none }
     a:active { color:white; text-decoration:none }
@@ -29,6 +26,18 @@
   #logo:hover {
     color: rgb(60, 151, 17);
     text-decoration: none;
+  }
+
+  .dropdown-toggle{
+    color:black;
+  }
+
+  .dropdown-menu{
+    font-size: 1.3em;
+  }
+
+  .play-index{
+    margin-top: 5px
   }
 
   .related-plays{

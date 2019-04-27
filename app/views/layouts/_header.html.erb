@@ -10,18 +10,30 @@
       </div>
       <div class="collapse navbar-collapse">
         <% if user_signed_in? %>
-        <p class="navbar-text navbar-right">
-          Under Login
-          <button class="btn btn-dark"><%= link_to "All User", users_path %></button>
-          <button class="btn btn-dark"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></button>
-          <button class="btn btn-dark"><%= link_to "Add New Play", new_play_path%></button>
-        </p>
+        <div class="navbar-text navbar-right">
+          <ul class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-dark">
+                Menu<b class="caret"></b></button>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= image_tag current_user.avatar.variant(combine_options:{resize:"160x160^",crop:"160x160+0+0",gravity: :center,border:'3',bordercolor:'black'}) %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Profile", user_path(current_user) %></li>
+              <li><%= link_to "All Users", users_path %></li>
+              <li><%= link_to "Add New Movie", new_play_path%></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </ul>
+        </div>
         <% else %>
-        <p class="navbar-text navbar-right">
+        <div class="navbar-text navbar-right">
           <button class="btn btn-dark"><%= link_to "Everyone's Favorites", users_path %></button>
           <button class="btn btn-dark"><%= link_to 'Sign Up', new_user_registration_path %></button>
           <button class="btn btn-dark"><%= link_to 'Login', new_user_session_path %></button>
-        </p>
+        </div>
         <% end %>
       </div>
     </div>

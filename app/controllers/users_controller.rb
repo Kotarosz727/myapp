@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   def index
-    @users = User.all.includes(avatar_attachment: [:blob]).where.not(id: current_user.id)
+    @users = User.all.includes(avatar_attachment: [:blob])
   end
 
   def show

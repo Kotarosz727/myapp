@@ -2,6 +2,7 @@
 
 class PlaysController < ApplicationController
   before_action :find_play, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[new edit]
 
   def index
     @plays = Play.includes(image_attachment: [:blob]).paginate(page: params[:page], per_page: 12)
@@ -15,7 +16,6 @@ class PlaysController < ApplicationController
 
   def new
     @play = current_user.plays.build
-    @categories = Category.all.map { |c| [c.name, c.id] }
   end
 
   def create
@@ -28,7 +28,8 @@ class PlaysController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit 
+  end
 
   def update
     if @play.update(play_params)
@@ -45,11 +46,15 @@ class PlaysController < ApplicationController
 
   private
 
-  def play_params
-    params.require(:play).permit(:title, :description, :director, :image, :url)
-  end
+    def play_params
+      params.require(:play).permit(:title, :description, :director, :image, :url)
+    end
 
-  def find_play
-    @play = Play.find(params[:id])
-  end
+    def find_play
+      @play = Play.find(params[:id])
+    end
+
+    def set_category
+      @categories = Category.all.map { |c| [c.name, c.id] }
+    end
 end

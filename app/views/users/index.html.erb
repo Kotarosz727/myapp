@@ -1,6 +1,6 @@
 <div class="row">
   <% @users.each do |user| %>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <%= link_to (user_path(user)) do %>
         <% if user.avatar.attached? %>
           <%= image_tag user.avatar.variant(combine_options:{resize:"280x280^",crop:"280x280+0+0",gravity: :center}) %>

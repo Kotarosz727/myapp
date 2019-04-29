@@ -10,6 +10,11 @@
     <p class="color-white">画像クリックでyoutube予告編へ（音量注意）</p>
       <p class="play-update">
         <% if user_signed_in? %>
+        <% if !@play.favorited?(current_user) %>
+            <%= link_to "お気に入り", play_favorites_path(@play),method: :post %>
+          <% else %>
+            <%= link_to "お気に入り解除", play_favorite_path(@play),method: :delete %>
+          <% end %>  
           <% if @play.user_id == current_user.id %>
           <button class="btn btn-success"><%= link_to "編集", edit_play_path(@play) %></button>
           <button class="btn btn-warning"><%= link_to "削除", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %></button>  

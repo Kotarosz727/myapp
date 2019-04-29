@@ -1,6 +1,7 @@
-# frozen_string_literal: true
-
 class PlaysController < ApplicationController
+
+  MAX_LIMITED_NUMBER_PLAY = 5
+
   before_action :find_play, only: %i[show edit update destroy]
   before_action :set_category, only: %i[new edit]
 
@@ -10,8 +11,7 @@ class PlaysController < ApplicationController
 
   def show
     @user = @play.user
-    @category = @play.category
-    @related_plays = @category.plays.where.not(id: @play.id).includes(image_attachment: [:blob]).random.limit(4)
+    @related_plays = Play.related_plays(@play, MAX_LIMITED_NUMBER_PLAY)
   end
 
   def new

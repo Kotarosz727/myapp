@@ -7,6 +7,13 @@ class Play < ApplicationRecord
   belongs_to :category, optional: true
   has_one_attached :image
   scope :random, -> { order('RANDOM()') }
+  scope :related_plays, ->(play, number){
+    where(category_id: play.category_id).
+    includes(image_attachment: [:blob]).
+    where.not(id: play.id).
+    distinct.
+    limit(number)
+  }
 
   def favorited?(user)
     favorited_users.include?(user)

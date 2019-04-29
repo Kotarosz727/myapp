@@ -1,5 +1,5 @@
 <%= simple_form_for @play do |f| %>
-  <%= select_tag(:category, options_for_select(@categories), :prompt =>"カテゴリーを選択") %>
+<%= select_tag(:category_id, options_for_select(@categories), :prompt =>"Select a category") %>
   <%= f.input :title, label: "題名" %>
   <%= f.input :description, label: "詳細" %>
   <%= f.input :director, label: "監督" %>

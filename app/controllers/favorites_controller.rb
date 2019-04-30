@@ -14,7 +14,6 @@ class FavoritesController < ApplicationController
     #@favorites = Favorite.where(play_id: params[:play_id]) 
     favorite.destroy
     render 'plays/destroy.js.erb'
-    
   end  
 
   def set_play

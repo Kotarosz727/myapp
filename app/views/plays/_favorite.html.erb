@@ -1,5 +1,8 @@
-<% if ! play.favorite_user(current_user) %>
-  <%= button_to "いいね", play_favorites_path(play), remote: true, method: :post, class: "btn btn-primary" %> 
-<% else %>
-  <%= button_to "解除", play_favorite_path(play.favorite_user(current_user.id), play_id: play.id), remote: true, method: :delete , class: "btn btn-danger" %>
+<% if user_signed_in? %>
+  <% if ! play.favorite_user(current_user) %>
+    <%= button_to "いいね", play_favorites_path(play), remote: true, method: :post, class: "btn btn-primary" %> 
+  <% else %>
+    <%= button_to "いいね解除", play_favorite_path(play.favorite_user(current_user.id), play_id: play.id), remote: true, method: :delete , class: "btn btn-secondly" %>
+  <% end %>  
 <% end %>  
+

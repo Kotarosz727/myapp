@@ -15,11 +15,9 @@
         <% end %>
       </div>
     </div>
-    <% if user_signed_in? %>
-      <p>
-        <%= render "plays/favorite", play: @play %>
+      <span id="like-of-<%= @play.id %>">
+        <%= render "favorite", play: @play %>
       </p>  
-    <% end %>  
     </p>
   </div>  
   <div class="col-md-8, play-show">

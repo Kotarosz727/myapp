@@ -1,0 +1,1 @@
+$("#like-of-<%= @play.id %>").html("<%= escape_javascript(render partial: 'plays/favorite', locals: { play: @play, favorite: @favorites }) %>")

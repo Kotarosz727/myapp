@@ -1,22 +1,26 @@
 <% provide(:title, @play.title) %>
-<%= link_to (user_path(@user)) do %>
-  <h5 class="color-white"><%= @user.name %> のおすすめ映画</h5>
-<% end %>  
 <div class="row">
   <div class="col-md-4">
-    <%= link_to (@play.url) do %>
-      <h2><%= image_tag @play.image.variant(resize: "325x475") %></h2>
-    <% end %>
-    <p class="color-white">画像クリックでyoutube予告編へ（音量注意）</p>
-      <p class="play-update">
+    <div class="panel panel-default">
+      <div class="panel-body"><%= image_tag @play.image.variant(resize: "325x475") %>
+        <%= link_to "Favorite by #{@user.name} ", user_path(@user) %>
+      </div>
+      <div class="panel-footer play-update">
+        <button class="btn btn-default"><%= link_to "Video", @play.url %></button>
         <% if user_signed_in? %>
-          <%= render "plays/favorite", play: @play %>
           <% if @play.user_id == current_user.id %>
             <button class="btn btn-success"><%= link_to "編集", edit_play_path(@play) %></button>
-            <button class="btn btn-warning"><%= link_to "削除", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %></button>  
+            <button class="btn btn-danger"><%= link_to "削除", play_path(@play), method: :delete, data: {confirm: "Are you sure ?" } %></button>  
           <% end %>
         <% end %>
-      </p>
+      </div>
+    </div>
+    <% if user_signed_in? %>
+      <p>
+        <%= render "plays/favorite", play: @play %>
+      </p>  
+    <% end %>  
+    </p>
   </div>  
   <div class="col-md-8, play-show">
     <h1><%= @play.title %></h2>

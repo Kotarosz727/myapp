@@ -11,8 +11,6 @@ class Play < ApplicationRecord
   scope :related_plays, ->(category, number){
     where(category_id: category.id).
     includes(image_attachment: [:blob]).
-    #where.not(id: play.id).
-  
     random.
     limit(number)
   }

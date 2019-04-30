@@ -9,7 +9,7 @@ class Play < ApplicationRecord
   
   scope :random, -> { order('RANDOM()') }
   scope :related_plays, ->(play, number){
-    where(category_id: play.category_id).
+    where(category_id: play.category_id).first
     includes(image_attachment: [:blob]).
     where.not(id: play.id).
     distinct.

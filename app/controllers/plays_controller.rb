@@ -11,7 +11,8 @@ class PlaysController < ApplicationController
 
   def show
     @user = @play.user
-    #@related_plays = Play.related_plays(@play, MAX_LIMITED_NUMBER_PLAY)
+    @related_plays = Play.related_plays(@play, MAX_LIMITED_NUMBER_PLAY)
+   
   end
 
   def new

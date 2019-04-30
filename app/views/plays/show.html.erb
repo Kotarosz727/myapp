@@ -25,7 +25,7 @@
     <h2><%= @play.director %></h2>
     <h5>カテゴリー：<%= @play.category.name %></h5>
     <p><%= @play.description %></p>
-    <% if false %> 
+   
     <div class="row related_image">
         <P class="related-plays"><関連作品></P>
         <% @related_plays.each do |related_play| %>
@@ -34,7 +34,7 @@
           <% end %>
         <% end %> 
     </div> 
-    <% end %>
+    
   </div>
 </div>
 

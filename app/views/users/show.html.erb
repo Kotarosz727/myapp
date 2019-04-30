@@ -3,10 +3,6 @@
     <%= image_tag @user.avatar.variant(combine_options:{resize:"350x400^",crop:"350x400+0+0",gravity: :center, border:'3',bordercolor:'black'}) %>
     <% if user_signed_in? %>
       <% if @user.id == current_user.id %>
-        <p class="UserProfile">
-          <button class="btn btn-primary"><%= link_to "ユーザー編集", edit_user_registration_path(@user) %></button>
-          <button class="btn btn-danger"><%= link_to "ユーザー削除", registration_path(@user), data: { confirm: "Really?" }, method: :delete %></button>
-        </p>
       <% end %>
     <% end %>    
   </div>

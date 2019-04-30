@@ -24,13 +24,14 @@
               <li class="divider"></li>
               <li>
                 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                <%= link_to "User settings", edit_user_registration_path(@user) %>
               </li>
             </ul>
           </ul>
         </div>
         <% else %>
         <div class="navbar-text navbar-right">
-          <button class="btn btn-dark"><%= link_to "Everyone's Favorites", users_path %></button>
+          <button class="btn btn-dark"><%= link_to "All User", users_path %></button>
           <button class="btn btn-dark"><%= link_to 'Sign Up', new_user_registration_path %></button>
           <button class="btn btn-dark"><%= link_to 'Login', new_user_session_path %></button>
         </div>

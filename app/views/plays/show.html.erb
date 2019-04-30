@@ -25,7 +25,16 @@
     <h2><%= @play.director %></h2>
     <h5>カテゴリー：<%= @play.category.name %></h5>
     <p><%= @play.description %></p>
- 
+    <% if false %> 
+    <div class="row related_image">
+        <P class="related-plays"><関連作品></P>
+        <% @related_plays.each do |related_play| %>
+          <%= link_to (play_path(related_play)) do %>
+            <%= image_tag related_play.image.variant(combine_options:{resize:"140x190^",crop:"140x190+0+0",gravity: :center, border:'3',bordercolor:'black'}) %>
+          <% end %>
+        <% end %> 
+    </div> 
+    <% end %>
   </div>
 </div>
 

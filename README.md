@@ -11,6 +11,7 @@
 ・外部サイトへの遷移（youtube）
 ・ActiveRecord関連付け
 ・N+1問題への対処
+・いいね機能実装（ajax）
 ・rspec test
 
 ３.主な技術

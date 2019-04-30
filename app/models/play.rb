@@ -12,6 +12,7 @@ class Play < ApplicationRecord
     includes(image_attachment: [:blob]).
     where.not(id: play.id).
     distinct.
+    random.
     limit(number)
   }
 

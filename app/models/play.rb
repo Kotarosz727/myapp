@@ -8,11 +8,11 @@ class Play < ApplicationRecord
   has_one_attached :image
   
   scope :random, -> { order('RANDOM()') }
-  scope :related_plays, ->(play, number){
-    where(category_id: play.category.id).
+  scope :related_plays, ->(category, number){
+    where(category_id: category.id).
     includes(image_attachment: [:blob]).
-    where.not(id: play.id).
-    distinct.
+    #where.not(id: play.id).
+  
     random.
     limit(number)
   }

@@ -11,8 +11,8 @@ class PlaysController < ApplicationController
 
   def show
     @user = @play.user
-    @related_plays = Play.related_plays(@play, MAX_LIMITED_NUMBER_PLAY)
-   
+    @category = Category.find_by(id: @play.category_id)
+    @related_plays = Play.related_plays( @category, MAX_LIMITED_NUMBER_PLAY)#.where.not(id: @play.id)
   end
 
   def new

@@ -3,7 +3,7 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-body"><%= image_tag @play.image.variant(resize: "325x475") %>
-        <%= link_to "Favorite by #{@user.name} ", user_path(@user) %>
+        Posted by <%= link_to @user.name, user_path(@user) %>
       </div>
       <div class="panel-footer play-update">
         <button class="btn btn-default"><%= link_to "Video", @play.url %></button>

@@ -2,7 +2,12 @@
   <div class="col-md-5">
     <%= image_tag @user.avatar.variant(combine_options:{resize:"350x400^",crop:"350x400+0+0",gravity: :center, border:'3',bordercolor:'black'}) %>
     <h4>ユーザー名: <%= @user.name %></h4>  
-  
+    <% if @user.fav_movies.any? %>
+      <h5 class="related_image"><いいねしたMovie一覧><h5>
+        <% @fav_movies.each do |movie| %>
+          <%= link_to image_tag(movie.image.variant(combine_options:{resize:"100x150^",crop:"100x150+0+0",gravity: :center, border:'3',bordercolor:'black'})),play_path(movie) %>
+        <% end %> 
+    <% end %>     
   </div>
   <div class="col-md-4">
     <投稿したMOVIE一覧>

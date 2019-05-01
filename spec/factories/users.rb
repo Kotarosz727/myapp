@@ -6,5 +6,6 @@ FactoryBot.define do
     email { 'test@example.com' }
     password { '121212' }
     password_confirmation { '121212' }
+    avatar { fixture_file_upload(Rails.root.join('spec', 'files', 'test.jpg'), 'image/jpg') }
   end
 end

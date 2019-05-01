@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light" style="background-color: #aa1414;">
+<nav class="navbar navbar-light" style="background-color:black">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
@@ -10,7 +10,7 @@
       </div>
       <div class="collapse navbar-collapse">
         <% if user_signed_in? %>
-        <div class="navbar-text navbar-right">
+        <ul class="nav navbar-nav navbar-text navbar-right">
           <ul class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-dark">
                 Menu<b class="caret"></b></button>
@@ -28,13 +28,13 @@
               </li>
             </ul>
           </ul>
-        </div>
+        </ul>
         <% else %>
-        <div class="navbar-text navbar-right">
+        <ul class="nav navbar-nav navbar-text navbar-right">
           <button class="btn btn-dark"><%= link_to "All User", users_path %></button>
           <button class="btn btn-dark"><%= link_to 'Sign Up', new_user_registration_path %></button>
           <button class="btn btn-dark"><%= link_to 'Login', new_user_session_path %></button>
-        </div>
+        </ul>
         <% end %>
       </div>
     </div>

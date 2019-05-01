@@ -10,10 +10,10 @@
     <% end %>     
   </div>
   <div class="col-md-4">
-    <投稿したMOVIE一覧>
+    <p><投稿したMOVIE一覧></p>
     <% @plays.each do |play| %>  
-      <div class="panel panel-danger">
-        <div class="panel-heading"><%= play.title %></div>
+      <div class="panel panel-default">
+        <div class="panel-heading"><h5><%= play.title %></h5></div>
           <div class="panel-body">
               <p class="text-center">
                 <% if play.image.attached? %>

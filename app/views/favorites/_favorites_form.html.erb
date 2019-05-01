@@ -1,9 +1,0 @@
-<% if ! @play.favorited?(current_user) %>
-  <%= button_to play_favorites_path(@play), id: "like-button", remote: true do %>
-    <%= image_tag "iine.png", :size =>'30x30' %>
-  <% end %>  
-<% else %>
-  <%= button_to play_favorite_path(@play), remote: true do %>
-    <%= image_tag "uniine.png", :size =>'30x30' %> いいね解除
-  <% end %>  
-<% end %>  

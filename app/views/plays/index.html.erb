@@ -1,6 +1,6 @@
 <div class="row">
 <% @plays.each do |play| %>
-  <div class="col-md-3">
+  <div class="col-md-3 text-center">
     <% if play.image.attached? %>
     <%= link_to (play_path(play)) do %>
       <%= image_tag play.image.variant(combine_options:{resize:"220x290^",crop:"220x290+0+0",gravity: :center}) , class: "play-index" %> 

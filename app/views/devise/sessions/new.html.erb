@@ -1,6 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
   <div class="row">
-    <div class="panel panel-danger">
+    <div class="panel panel-default">
       <div class="panel-heading"><h2>ログイン</h2></div>  
       <div class="panel-body">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,7 +19,7 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="form-actions">
-          <%= f.button :submit , "ログイン", class: "btn btn-danger" %>
+          <%= f.button :submit , "ログイン", class: "btn btn-primary" %>
         </div>
       </div>
       <div class="panel-footer">

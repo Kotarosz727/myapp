@@ -5,7 +5,7 @@
     <% end %>  
   <% else %>
     <%= button_to play_favorite_path(play.favorite_user(current_user.id), play_id: play.id), remote: true, method: :delete do %>
-      <%= image_tag("icon_black_heart.png") %>
+      <%= image_tag("icon_black_heart.png") %> <span>いいね解除</span>
     <% end %>  
   <% end %>  
 <% end %>  

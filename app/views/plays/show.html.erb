@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-4">
     <div class="panel panel-default">
-      <div class="panel-body"><%= image_tag @play.image.variant(resize: "325x475") %>
+      <div class="panel-body text-center"><%= image_tag @play.image.variant(resize: "325x475") %>
         Posted by <%= link_to @user.name, user_path(@user) %>
       </div>
       <div class="panel-footer play-update">
@@ -17,24 +17,21 @@
     </div>
       <span id="like-of-<%= @play.id %>">
         <%= render "favorite", play: @play %>
-      </p>  
-    </p>
+      </span>  
   </div>  
-  <div class="col-md-8, play-show">
+  <div class="col-md-8 play-show">
     <h1><%= @play.title %></h2>
     <h2><%= @play.director %></h2>
     <h5>カテゴリー：<%= @play.category.name %></h5>
     <p><%= @play.description %></p>
-   
-    <div class="row related_image">
-        <P class="related-plays"><関連作品></P>
-        <% @related_plays.each do |related_play| %>
-          <%= link_to (play_path(related_play)) do %>
-            <%= image_tag related_play.image.variant(combine_options:{resize:"140x190^",crop:"140x190+0+0",gravity: :center, border:'3',bordercolor:'black'}) %>
-          <% end %>
-        <% end %> 
-    </div> 
-    
+    <p class="row related_image">
+      <P class="related-plays"><関連作品></P>
+      <% @related_plays.each do |related_play| %>
+        <%= link_to (play_path(related_play)) do %>
+          <%= image_tag related_play.image.variant(combine_options:{resize:"140x190^",crop:"140x190+0+0",gravity: :center, border:'3',bordercolor:'black'}) %>
+        <% end %>
+      <% end %> 
+    </p>  
   </div>
 </div>
 

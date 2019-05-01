@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :plays do
+   resources :comments
    resources :favorites, only: [:create, :destroy]
   end 
 end

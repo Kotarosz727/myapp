@@ -13,6 +13,8 @@ class PlaysController < ApplicationController
     @user = @play.user
     @category = Category.find_by(id: @play.category_id)
     @related_plays = Play.related_plays( @category, MAX_LIMITED_NUMBER_PLAY).where.not(id: @play.id)
+    @comment = Comment.new
+    @comments = @play.comments
   end
 
   def new

@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class FavoritesController < ApplicationController
- 
   before_action :set_play
 
   def create
@@ -11,12 +12,9 @@ class FavoritesController < ApplicationController
     favorite = Favorite.find_by(user_id: current_user.id, play_id: params[:play_id])
     favorite.destroy
     render 'plays/destroy.js.erb'
-  end  
+  end
 
   def set_play
     @play = Play.find(params[:play_id])
   end
-
 end
-
-  

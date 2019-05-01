@@ -1,5 +1,6 @@
-class PlaysController < ApplicationController
+# frozen_string_literal: true
 
+class PlaysController < ApplicationController
   MAX_LIMITED_NUMBER_PLAY = 5
 
   before_action :find_play, only: %i[show edit update destroy]
@@ -12,7 +13,7 @@ class PlaysController < ApplicationController
   def show
     @user = @play.user
     @category = Category.find_by(id: @play.category_id)
-    @related_plays = Play.related_plays( @category, MAX_LIMITED_NUMBER_PLAY).where.not(id: @play.id)
+    @related_plays = Play.related_plays(@category, MAX_LIMITED_NUMBER_PLAY).where.not(id: @play.id)
     @comment = Comment.new
     @comments = @play.comments
   end
@@ -31,8 +32,7 @@ class PlaysController < ApplicationController
     end
   end
 
-  def edit 
-  end
+  def edit; end
 
   def update
     if @play.update(play_params)

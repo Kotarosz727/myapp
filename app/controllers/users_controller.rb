@@ -10,5 +10,4 @@ class UsersController < ApplicationController
     @plays = @user.plays.all.includes(image_attachment: [:blob])
     @fav_movies = @user.fav_movies.includes(image_attachment: [:blob])
   end
-  
 end

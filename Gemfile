@@ -26,6 +26,7 @@ gem 'sqlite3', group: %i[development test]
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
+gem 'ransack'
 
 group :development, :test do
   gem 'bullet'

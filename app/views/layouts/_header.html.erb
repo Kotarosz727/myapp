@@ -1,47 +1,54 @@
 <nav class="navbar navbar-light" style="background-color:black">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/" id="logo">Favarite Movie</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <% if user_signed_in? %>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" id="logo">Favarite Movie</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-text navbar-center">
+        <%= search_form_for @search, url: plays_path do |f| %>
+      <dt>
+        <%= f.text_field :title_cont ,placeholder: '映画タイトルで検索...' %>
+        <%= f.submit ("serch") , class: 'btn btn-primary'%>
+      </dt>
+        <% end %>
+      </ul>
+      <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-text navbar-right">
           <ul class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-dark">
-                Menu<b class="caret"></b></button>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= image_tag current_user.avatar.variant(combine_options:{resize:"160x160^",crop:"160x160+0+0",gravity: :center,border:'3',bordercolor:'black'}) %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Profile", user_path(current_user) %></li>
-              <li><%= link_to "All Users", users_path %></li>
-              <li><%= link_to "Add New Movie", new_play_path%></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-                <%= link_to "User settings", edit_user_registration_path(@user) %>
-              </li>
-            </ul>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-dark">
+            Menu<b class="caret"></b></button>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= image_tag current_user.avatar.variant(combine_options:{resize:"160x160^",crop:"160x160+0+0",gravity: :center,border:'3',bordercolor:'black'}) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "All Users", users_path %></li>
+            <li><%= link_to "Add New Movie", new_play_path%></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+              <%= link_to "User settings", edit_user_registration_path(@user) %>
+            </li>
           </ul>
         </ul>
-        <% else %>
+      <% else %>
         <ul class="nav navbar-nav navbar-text navbar-right">
           <button class="btn btn-dark"><%= link_to "All User", users_path %></button>
           <button class="btn btn-dark"><%= link_to 'Sign Up', new_user_registration_path %></button>
           <button class="btn btn-dark"><%= link_to 'Login', new_user_session_path %></button>
         </ul>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-  </nav>
-  <p class="notice">
-    <%= notice %>
-  </p>
-  <p class="alert">
-    <%= alert %>
-  </p>
+  </div>
+</nav>
+<p class="notice">
+<%= notice %>
+</p>
+<p class="alert">
+<%= alert %>
+</p>

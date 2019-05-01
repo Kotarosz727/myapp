@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :comment do
-    content "MyText"
-    user_id 1
-    play_id 1
+    content { 'MyText' }
+    user_id { 1 }
+    play_id { 1 }
   end
 end

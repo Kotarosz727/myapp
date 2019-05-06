@@ -9,18 +9,16 @@ RSpec.describe 'Plays', type: :feature do
     fill_in 'メールアドレス', with: user.email
     fill_in 'パスワード', with: user.password
     click_button 'ログイン'
-    expect(page).to have_content 'ログインしました。ようこそ！！！'
 
-    expect do
-      visit new_play_path
-      select 'ロマンス', from: 'category_id'
-      fill_in '題名', with: 'タイタニック'
-      fill_in '詳細', with: 'hogehoge'
-      fill_in '監督', with: 'ジェームズキャメロン'
-      fill_in '予告編URL（youtube）', with: 'sample.youtube.com'
-      attach_file 'play_image', "#{Rails.root}/spec/files/test.jpg"
-      click_button '登録する'
-    end.to change(user.plays, :count).by(1)
+    visit new_play_path
+    fill_in '題名', with: 'タイタニック'
+    fill_in '詳細', with: 'hogehoge'
+    fill_in '監督', with: 'ジェームズキャメロン'
+    fill_in '予告編URL（youtube）', with: 'sample.youtube.com'
+    attach_file 'play_image', "#{Rails.root}/spec/files/test.jpg"
+    select 'アニメ', from: 'category_id'
+    click_button '登録する'
+    expect(page).to have_content　"映画を投稿しました！"
   end
 
   it 'correct plays are shown in show template' do

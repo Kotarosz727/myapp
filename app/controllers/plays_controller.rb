@@ -26,6 +26,7 @@ class PlaysController < ApplicationController
     @play = current_user.plays.build(play_params)
     @play.category_id = params[:category_id]
     if @play.save
+      flash[:success] = "映画を投稿しました！"
       redirect_to play_path(@play)
     else
       render new

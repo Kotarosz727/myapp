@@ -3,11 +3,12 @@
 class PlaysController < ApplicationController
   MAX_LIMITED_NUMBER_PLAY = 5
 
-  before_action :find_play, only: %i[show edit update destroy]
+  before_action :find_play, only: %i[show update]
   before_action :set_category, only: %i[new edit]
+  before_action :owner_user?, only: %i[edit destroy]
 
   def index
-    @plays = Play.includes(image_attachment: [:blob]).page(params[:page]).per(4)
+    @plays = Play.includes(image_attachment: [:blob]).page(params[:page]).per(12)
   end
 
   def show
@@ -33,7 +34,8 @@ class PlaysController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @play.update(play_params)
@@ -60,5 +62,10 @@ class PlaysController < ApplicationController
 
     def set_category
       @categories = Category.all.map { |c| [c.name, c.id] }
+    end
+
+    def owner_user?
+      @play = current_user.plays.find_by(id: params[:id])
+      redirect_to root_path if @play.nil?
     end
 end

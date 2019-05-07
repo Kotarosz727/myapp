@@ -5,7 +5,9 @@ require 'rails_helper'
 RSpec.describe 'Plays', type: :feature do
 
   let!(:user) { FactoryBot.create(:user, name: "Yamada", email: "yamada@sample.com") }
-  let!(:play_a) { FactoryBot.create(:play, user: user) }
+  let!(:category) { FactoryBot.create(:category)}
+  let!(:play_a) { FactoryBot.create(:play, user: user, category: category) }
+
  
   it 'correct plays are shown in show template' do
     visit play_path(play_a)

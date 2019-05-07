@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :feature do
@@ -13,7 +11,5 @@ RSpec.describe 'Users', type: :feature do
     click_button 'ログイン'
     expect(page).to have_content 'ログインしました。ようこそ！！！'
   end
-
-  
 
 end

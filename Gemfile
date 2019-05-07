@@ -25,8 +25,10 @@ gem 'simple_form', '~> 4.1'
 gem 'sqlite3', group: %i[development test]
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'will_paginate'
+#gem 'will_paginate'
 gem 'ransack'
+gem 'kaminari', '~> 0.17.0'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 group :development, :test do
   gem 'bullet'

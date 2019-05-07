@@ -7,7 +7,7 @@ class PlaysController < ApplicationController
   before_action :set_category, only: %i[new edit]
 
   def index
-    @plays = Play.includes(image_attachment: [:blob]).paginate(page: params[:page], per_page: 12)
+    @plays = Play.includes(image_attachment: [:blob]).page(params[:page]).per(4)
   end
 
   def show

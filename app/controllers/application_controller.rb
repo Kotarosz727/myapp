@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 def set_search
   @search = Play.includes(image_attachment: [:blob]).ransack(params[:q]) 
-  @search_plays = @search.result.page(params[:page])
+  @search_plays = @search.result.page(params[:page]).per(12)
 end
 
   protected

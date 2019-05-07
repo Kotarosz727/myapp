@@ -9,5 +9,7 @@ FactoryBot.define do
     url { '123' }
     description { 'hogehoge' }
     image { fixture_file_upload(Rails.root.join('spec', 'files', 'test.jpg'), 'image/jpg') }
+    association :user
+    association :category
   end
 end

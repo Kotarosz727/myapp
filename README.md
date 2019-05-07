@@ -37,7 +37,7 @@
 ・rspec test
 
 
-３).主な技術
+3).主な技術
 
 ・DB:postgresql（本番環境）
 
